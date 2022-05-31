@@ -157,6 +157,9 @@ p {
   margin-bottom: 1rem;
 }
 
+.text-faded a{
+    color: rgba(255, 255, 255, 0.7);
+}
 abbr[title],
 abbr[data-bs-original-title] {
   -webkit-text-decoration: underline dotted;
