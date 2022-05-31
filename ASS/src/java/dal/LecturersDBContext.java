@@ -16,7 +16,7 @@ import model.Lecturers;
  *
  * @author Trung Duc
  */
-public class LecturersDBContext extends DBContext<Lecturers>{
+public class LecturersDBContext extends DBContext<Lecturers> {
 
     @Override
     public ArrayList<Lecturers> list() {
@@ -45,23 +45,23 @@ public class LecturersDBContext extends DBContext<Lecturers>{
 
     @Override
     public Lecturers getT(String username, String password) {
-try {
-            String sql = "select * from Login_Lecturers where username = ? and password = ?";          
+        try {
+            String sql = "select * from Login_Lecturers where username = ? and password = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, username);
             stm.setString(2, password);
             ResultSet rs = stm.executeQuery();
-            while(rs.next())
-            {
+            while (rs.next()) {
                 Lecturers lec = new Lecturers();
                 lec.setUsername(rs.getString("username"));
-                lec.setPassword(rs.getString("password"));               
+                lec.setPassword(rs.getString("password"));
                 lec.setDisplayname(rs.getString("displayname"));
                 return lec;
             }
         } catch (SQLException ex) {
             Logger.getLogger(LecturersDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;    }
-    
+        return null;
+    }
+
 }
