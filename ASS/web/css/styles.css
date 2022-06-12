@@ -11497,6 +11497,9 @@ footer.footer .social-link:hover {
     font-size: 5.5rem;
   }
 }
+.masthead h3{
+    color: yellow;
+}
 
 .portfolio-item {
   display: block;
