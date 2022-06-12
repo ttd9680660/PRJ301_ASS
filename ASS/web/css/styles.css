@@ -11424,7 +11424,7 @@ html {
 
 .callout {
   padding: 15rem 0;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../assets/img/anh4.jpg");
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../assets/img/anh1.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -11434,6 +11434,9 @@ html {
   font-weight: 700;
   display: block;
   max-width: 30rem;
+}
+.callout h2{
+    color: orange;
 }
 
 footer.footer {
