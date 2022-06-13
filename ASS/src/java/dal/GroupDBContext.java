@@ -10,68 +10,58 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.Student;
+import model.Group;
 
 /**
  *
  * @author Trung Duc
  */
-public class StudentDBContext extends DBContext<Student> {
+public class GroupDBContext extends DBContext<Group>{
 
     @Override
-    public ArrayList<Student> list() {
-        ArrayList<Student> student = new ArrayList<>();
+    public ArrayList<Group> list() {
+        ArrayList<Group> group = new ArrayList<>();
         try {
-            String sql = "select sid,scode,sname,gender,dob,address,sphone from Student";
+            String sql = "SELECT [gid]\n"
+                    + "      ,[gname]\n"
+                    + "  FROM [Group]";
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
-                Student s = new Student();
-                s.setSid(rs.getInt("sid"));
-                s.setScode(rs.getString("scode"));
-                s.setSname(rs.getString("sname"));
-                s.setGender(rs.getBoolean("gender"));
-                s.setDob(rs.getDate("dob"));
-                s.setAddress(rs.getString("address"));
-                s.setSphone(rs.getString("sphone"));
-                student.add(s);
+                Group g = new Group();
+                g.setGid(rs.getInt("gid"));
+                g.setGname(rs.getString("gname"));
+                group.add(g);
             }
-
         } catch (SQLException ex) {
-            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GroupDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return student;
+        return group;
     }
 
     @Override
-    public Student get(int id) {
+    public Group get(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void insert(Student model) {
+    public void insert(Group model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void update(Student model) {
+    public void update(Group model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void delete(Student model) {
+    public void delete(Group model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Student getT(String a, String b) {
+    public Group getT(String a, String b) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
-       public static void main(String[] args) {
-        StudentDBContext s = new StudentDBContext();
-        ArrayList<Student> acc = s.list();
-        System.out.println(acc);
-    }
-       
+    
 }

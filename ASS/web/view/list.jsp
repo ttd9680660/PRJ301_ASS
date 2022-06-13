@@ -16,6 +16,7 @@
               <table>
                 <tr>
                     <td>id</td>
+                    <td>code</td>
                     <td>name</td>
                     <td>gender</td>
                     <td>dob</td>
@@ -25,6 +26,7 @@
                 <c:forEach items="${requestScope.student}" var="s">
                     <tr>
                         <td>${s.sid}</td>
+                        <td>${s.scode}</td>
                         <td>${s.sname}</td>
                         <td>${s.gender}</td>
                         <td>${s.dob}</td>
