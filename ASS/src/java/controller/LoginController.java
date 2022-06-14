@@ -9,6 +9,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import model.Lecturers;
 
@@ -29,7 +30,10 @@ public class LoginController extends HttpServlet {
         if (lec == null) {
             response.getWriter().println("Login Fail!");
         } else {
-            response.getWriter().println("Login Successful!");
+            HttpSession session= request.getSession();
+            session.setAttribute("lec", lec);
+            request.getSession().setAttribute("lec", lec);
+            response.sendRedirect("group");
         }
     }
 

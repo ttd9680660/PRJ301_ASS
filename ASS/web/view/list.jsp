@@ -11,30 +11,85 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
+    <style>
+        .student {
+            width: 100%;
+        }
+        .student td{
+            text-align: center;
+        }
+        th {
+            background-color: #aaffff;
+        }
+        .anh1 {
+            width: 30px;
+            height: 35px;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        .id {
+            width: 40px;
+        }
+
+        .code{
+            width: 100px;
+        }
+
+        .khung1{
+            margin-bottom: 50px;
+        }
+        .khung1 td{
+            font-size: 50px;
+        }
+        .khung2{
+            width: 100%;
+            background-color: #cccccc;
+            margin-bottom: 20px;
+        }
+    </style>
     <body>
-                <form action="list" method ="GET">
-              <table>
+        <div>
+            <table class="khung1" border="0px"> 
                 <tr>
-                    <td>id</td>
-                    <td>code</td>
-                    <td>name</td>
-                    <td>gender</td>
-                    <td>dob</td>
-                    <td>address</td>
-                    <td>phone</td>
+                    <td>FPT University Academic Portal</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div>
+            <table class="khung2" border="0px"> 
+                <tr>
+                    <td><a href="view/group.jsp">Home</a>|Group</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div >
+                <form action="list" method ="GET">
+              <table class="student" border = "1px">
+                <tr>
+                    <th class="id">ID</th>
+                    <th class="code">Code</th>
+                    <th class="name">Name</th>
+                    <th class="gender">Gender</th>
+                    <th class="dob">Dob</th>
+                    <th class="address">Address</th>
+                    <th class="phone">Phone</th>
                 </tr>
                 <c:forEach items="${requestScope.student}" var="s">
                     <tr>
-                        <td>${s.sid}</td>
-                        <td>${s.scode}</td>
-                        <td>${s.sname}</td>
-                        <td>${s.gender}</td>
-                        <td>${s.dob}</td>
-                        <td>${s.address}</td>
-                        <td>${s.sphone}</td>
+                        <td class="id1">${s.sid}</td>
+                        <td class="code1">${s.scode}</td>
+                        <td class="name1">${s.sname}</td>
+                        <td><img class="anh1" src="assets/img/${s.gender?"nam.png":"gai.png"}" alt=""/></td>
+                        <td class="dob1">${s.dob}</td>
+                        <td class="address1">${s.address}</td>
+                        <td class="phone1">${s.sphone}</td>
                     </tr>  
                 </c:forEach>
             </table>
     </form>
+        </div>
     </body>
 </html>

@@ -4,6 +4,7 @@
     Author     : Trung Duc
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,16 +13,20 @@
         <title>JSP Page</title>
     </head>
     <style>
-        .lienket a{
+        .lop a{
             text-decoration: none
+        }
+        .lop{
+            padding: 2px;
         }
     </style>
     <body>
-        <div class="lienket">
+        <a>Hello Lecturers!</a>
+        <div class="lop">
             Group :
             <table border = "2px">
                 <tr>
-                    <c:forEach items="${requestScope.group}" var="g">
+                <c:forEach items="${requestScope.group}" var="g">
                         <td>
                             <a href="student?id=${g.gid}">${g.gname}</a>
                         </td> 

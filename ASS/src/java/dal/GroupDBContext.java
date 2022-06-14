@@ -11,13 +11,14 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Group;
+import model.Student;
 
 /**
  *
  * @author Trung Duc
  */
 public class GroupDBContext extends DBContext<Group>{
-
+  
     @Override
     public ArrayList<Group> list() {
         ArrayList<Group> group = new ArrayList<>();
@@ -64,4 +65,9 @@ public class GroupDBContext extends DBContext<Group>{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
+       public static void main(String[] args) {
+        GroupDBContext g = new GroupDBContext();
+        ArrayList<Group> acc = g.list();
+        System.out.println(acc);
+    }
 }
