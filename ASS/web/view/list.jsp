@@ -45,7 +45,17 @@
         .khung2{
             width: 100%;
             background-color: #cccccc;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .img1 {
+            width: 130px;
+            height: 150px;
+        }
+        .img{
+            width: 200px;
+        }
+        .gender{
+            width: 120px;
         }
     </style>
     <body>
@@ -70,6 +80,7 @@
               <table class="student" border = "1px">
                 <tr>
                     <th class="id">ID</th>
+                    <th class="img">Image</th>
                     <th class="code">Code</th>
                     <th class="name">Name</th>
                     <th class="gender">Gender</th>
@@ -80,6 +91,10 @@
                 <c:forEach items="${requestScope.student}" var="s">
                     <tr>
                         <td class="id1">${s.sid}</td>
+                                            
+                        <td>                  
+                    <img class="img1" src="${s.simg}" alt=""/> </td>
+                                                
                         <td class="code1">${s.scode}</td>
                         <td class="name1">${s.sname}</td>
                         <td><img class="anh1" src="assets/img/${s.gender?"nam.png":"gai.png"}" alt=""/></td>

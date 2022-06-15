@@ -12,6 +12,7 @@ import java.sql.Date;
  */
 public class Student {
     private int sid;
+    private String simg;
     private String scode;
     private String sname;
     private Boolean gender;
@@ -35,6 +36,15 @@ public class Student {
     public void setSid(int sid) {
         this.sid = sid;
     }
+
+    public String getSimg() {
+        return simg;
+    }
+
+    public void setSimg(String simg) {
+        this.simg = simg;
+    }
+    
 
     public String getScode() {
         return scode;

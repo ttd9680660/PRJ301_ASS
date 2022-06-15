@@ -133,13 +133,14 @@ public class StudentDBContext extends DBContext<Student> {
     public ArrayList<Student> list() {
         ArrayList<Student> student = new ArrayList<>();
         try {
-            String sql = "select sid,scode,sname,gender,dob,address,sphone from Student";
+            String sql = "select sid,simg,scode,sname,gender,dob,address,sphone from Student";
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Student s = new Student();
                 s.setSid(rs.getInt("sid"));
                 s.setScode(rs.getString("scode"));
+                s.setSimg(rs.getString("simg"));
                 s.setSname(rs.getString("sname"));
                 s.setGender(rs.getBoolean("gender"));
                 s.setDob(rs.getDate("dob"));
