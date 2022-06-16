@@ -23,8 +23,7 @@ public class GroupDBContext extends DBContext<Group>{
     public ArrayList<Group> list() {
         ArrayList<Group> group = new ArrayList<>();
         try {
-            String sql = "SELECT [gid]\n"
-                    + "      ,[gname]\n"
+            String sql = "SELECT *"
                     + "  FROM [Group]";
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
@@ -32,6 +31,8 @@ public class GroupDBContext extends DBContext<Group>{
                 Group g = new Group();
                 g.setGid(rs.getInt("gid"));
                 g.setGname(rs.getString("gname"));
+                g.setCid(rs.getInt("cid"));
+                g.setLid(rs.getInt("lid"));
                 group.add(g);
             }
         } catch (SQLException ex) {

@@ -70,13 +70,13 @@
         <div>
             <table class="khung2" border="0px"> 
                 <tr>
-                    <td><a href="view/group.jsp">Home</a>|Group</td>
+                    <td><a href="group">Home</a>|Group</td>
                 </tr>
             </table>
         </div>
-        
+
         <div >
-                <form action="list" method ="GET">
+               
               <table class="student" border = "1px">
                 <tr>
                     <th class="id">ID</th>
@@ -88,10 +88,9 @@
                     <th class="address">Address</th>
                     <th class="phone">Phone</th>
                 </tr>
-                <c:forEach items="${requestScope.student}" var="s">
+                <c:forEach items="${requestScope.st}" var="s">
                     <tr>
-                        <td class="id1">${s.sid}</td>
-                                            
+                        <td class="id1">${s.sid}</td>                                           
                         <td>                  
                     <img class="img1" src="${s.simg}" alt=""/> </td>
                                                 
@@ -104,7 +103,7 @@
                     </tr>  
                 </c:forEach>
             </table>
-    </form>
+
         </div>
     </body>
 </html>
