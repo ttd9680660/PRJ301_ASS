@@ -21,7 +21,7 @@
         }
     </style>
     <body>
-        <a>Hello Lecturers!</a>
+        <a>Hello </a>
         <div class="lop">
             Group :
             <table border = "2px">
