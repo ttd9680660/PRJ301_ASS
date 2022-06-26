@@ -1,0 +1,28 @@
+// In ra các sinh viên học cùng 1 lớp
+
+SELECT [Group].gid, [Group].gname, Student.simg, Student.scode, Student.sname, Student.gender, Student.dob, Student.address, Student.sphone 
+FROM   [Group] INNER JOIN
+Group_Student ON [Group].gid = Group_Student.gid INNER JOIN
+Student ON Group_Student.sid = Student.sid
+where [Group].gid = ?
+
+// In ra sinh viên 1 lớp cùng 1 môn học
+SELECT [Group].gid, [Group].gname,Course.cname, Lecturer.lname, Student.sname, Student.scode, Student.gender, Student.dob, Student.address, Student.sphone 
+FROM   [Group] INNER JOIN
+Group_Student ON [Group].gid = Group_Student.gid INNER JOIN
+Student ON Group_Student.sid = Student.sid INNER JOIN
+Lecturer ON Lecturer.lid = [Group].gid INNER JOIN
+Course ON Course.cid = [Group].gid
+where Course.cid=?
+
+//in ra danh sachs mon hoc cua 1 sinh vien
+Select s.sid, s.sname, c.cname
+From Student s inner join Transcript t on s.sid=t.sid inner join
+Course c on t.cid = c.cid
+where s.sid=?
+
+//in ra danh sach diem 1 mon cua 1 sinh vien
+Select s.sid,s.sname, c.cname, t.as1,t.as2, t.pt1, t.pt2, t.pt3,t.pe,t.fe
+From Student s inner join Transcript t on s.sid=t.sid inner join
+Course c on t.cid = c.cid
+where s.sid=? and c.cid=? 
