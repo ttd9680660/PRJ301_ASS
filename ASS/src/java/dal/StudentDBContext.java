@@ -45,8 +45,6 @@ public class StudentDBContext extends DBContext<Student> {
                 Group g = new Group();
                 g.setGid(rs.getInt("gid"));
                 g.setGname(rs.getString("gname"));
-                g.setCid(rs.getInt("cid"));
-                g.setLid(rs.getInt("lid"));
                 s.setGroup(g);
                 st.add(s);
             }

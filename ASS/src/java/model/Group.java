@@ -13,25 +13,17 @@ import java.util.ArrayList;
 public class Group {
     private int gid;
     private String gname;
-    private int cid;
-    private int lid;
+    private Course co;
+
+    public Course getCo() {
+        return co;
+    }
+
+    public void setCo(Course co) {
+        this.co = co;
+    }
+    
     ArrayList<Student> st = new ArrayList();
-
-    public int getCid() {
-        return cid;
-    }
-
-    public void setCid(int cid) {
-        this.cid = cid;
-    }
-
-    public int getLid() {
-        return lid;
-    }
-
-    public void setLid(int lid) {
-        this.lid = lid;
-    }
 
     public int getGid() {
         return gid;

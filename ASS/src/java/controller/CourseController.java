@@ -19,7 +19,7 @@ import model.Group;
  *
  * @author Trung Duc
  */
-public class GroupController extends HttpServlet{
+public class CourseController extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,16 +27,15 @@ public class GroupController extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int subid = Integer.parseInt(request.getParameter("id"));
-        
-        CourseDBContext dbco = new CourseDBContext();
-        ArrayList<Course> course = dbco.list();
-        request.setAttribute("course", course);
+        CourseDBContext db = new CourseDBContext();
+        ArrayList<Course> course = db.list();
+        request.setAttribute("course", course);      
         
         GroupDBContext dbgroup = new GroupDBContext();
-        ArrayList<Group> group = dbgroup.search(subid);
-
-        request.setAttribute("group", group);
+        ArrayList<Group> group = dbgroup.search(1);
+        request.setAttribute("group", group);     
+        
+        
         request.getRequestDispatcher("student/group.jsp").forward(request, response);
     }
     
