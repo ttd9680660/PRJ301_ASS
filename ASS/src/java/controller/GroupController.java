@@ -27,14 +27,14 @@ public class GroupController extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int subid = Integer.parseInt(request.getParameter("id"));
+        int cid = Integer.parseInt(request.getParameter("id"));
         
         CourseDBContext dbco = new CourseDBContext();
         ArrayList<Course> course = dbco.list();
         request.setAttribute("course", course);
         
         GroupDBContext dbgroup = new GroupDBContext();
-        ArrayList<Group> group = dbgroup.search(subid);
+        ArrayList<Group> group = dbgroup.search(cid);
 
         request.setAttribute("group", group);
         request.getRequestDispatcher("student/group.jsp").forward(request, response);
