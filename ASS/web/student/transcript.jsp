@@ -176,6 +176,7 @@
                                                     </c:if>  
                                                     <c:if test="${requestScope.transcript.as2 != 0}">
                                                         ${requestScope.transcript.as2}
+                                                        </c:if> 
                                                 </td>
                                                 <td></td>
                                             </tr>
@@ -197,6 +198,7 @@
                                                     </c:if>  
                                                     <c:if test="${requestScope.transcript.pt1 != 0}">
                                                         ${requestScope.transcript.pt1}
+                                                        </c:if> 
                                                 </td>
                                                 <td></td>
                                             </tr>
@@ -209,6 +211,7 @@
                                                     </c:if>  
                                                     <c:if test="${requestScope.transcript.pt2 != 0}">
                                                         ${requestScope.transcript.pt2}
+                                                        </c:if> 
                                                 </td>
                                                 <td></td>
                                             </tr>
@@ -221,6 +224,7 @@
                                                     </c:if>  
                                                     <c:if test="${requestScope.transcript.pt3 != 0}">
                                                         ${requestScope.transcript.pt3}
+                                                        </c:if> 
                                                 </td>
                                                 <td></td>
                                             </tr>
@@ -241,6 +245,7 @@
                                                     </c:if>  
                                                     <c:if test="${requestScope.transcript.pe != 0}">
                                                         ${requestScope.transcript.pe}
+                                                        </c:if> 
                                                 </td>
                                                 <td></td>
                                             </tr>
@@ -262,6 +267,7 @@
                                                     </c:if>  
                                                     <c:if test="${requestScope.transcript.fe != 0}">
                                                         ${requestScope.transcript.fe}
+                                                        </c:if> 
                                                 </td>
                                                 <td></td>
                                             </tr>
