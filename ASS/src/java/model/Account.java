@@ -8,7 +8,7 @@ package model;
  *
  * @author Trung Duc
  */
-public class Lecturers {
+public class Account {
     private String username;
     private String password;
     private String displayname;

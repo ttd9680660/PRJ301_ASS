@@ -4,35 +4,24 @@
  */
 package controller;
 
-import dal.GroupDBContext;
-import dal.StudentDBContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import model.Group;
-import model.Student;
 
 /**
  *
  * @author Trung Duc
  */
-public class ListStudentController extends HttpServlet {
+public class LogoutController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("sid"));
-        StudentDBContext db = new StudentDBContext();
-        ArrayList<Student> st = db.search(id);
-        int count = 1;
-        GroupDBContext gdb = new GroupDBContext();
-        ArrayList<Group> gr = gdb.list();
-        request.setAttribute("st", st);
-        request.setAttribute("gr", gr);
-        request.getRequestDispatcher("view/list.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+        session.removeAttribute("acc");
+        response.sendRedirect("home");
     }
 
     @Override
@@ -42,14 +31,12 @@ public class ListStudentController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        StudentDBContext db = new StudentDBContext();
-//        ArrayList<Student> student = db.list();
-//        request.setAttribute("student", student);
-//        request.getRequestDispatcher("view/list.jsp").forward(request, response);
         processRequest(request, response);
     }
+
     @Override
     public String getServletInfo() {
         return "Short description";
-    }
+    }    
+
 }

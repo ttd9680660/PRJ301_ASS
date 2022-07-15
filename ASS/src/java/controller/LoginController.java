@@ -4,14 +4,16 @@
  */
 package controller;
 
-import dal.LecturersDBContext;
+
+import dal.AccountDBContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
-import model.Lecturers;
+import model.Account;
+
 
 /**
  *
@@ -24,16 +26,19 @@ public class LoginController extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        LecturersDBContext db = new LecturersDBContext();
-        Lecturers lec = db.getT(username, password);
+        AccountDBContext db = new AccountDBContext();
+        Account acc = db.getT(username, password);
 
-        if (lec == null) {
-            response.getWriter().println("Login Fail!");
+        if (acc == null) {
+            request.getSession().setAttribute("account", null);
+            request.setAttribute("mes", "Login Fail!");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+            
         } else {
             HttpSession session= request.getSession();
-            session.setAttribute("lec", lec);
-            request.getSession().setAttribute("lec", lec);
-            response.sendRedirect("group");
+            session.setAttribute("acc", acc);
+            request.getSession().setAttribute("acc", acc);
+            response.sendRedirect("home.jsp");
         }
     }
 

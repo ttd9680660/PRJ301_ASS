@@ -10,58 +10,61 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.Lecturers;
+import model.Account;
 
 /**
  *
  * @author Trung Duc
  */
-public class LecturersDBContext extends DBContext<Lecturers> {
+public class AccountDBContext extends DBContext<Account>{
 
     @Override
-    public ArrayList<Lecturers> list() {
+    public ArrayList<Account> list() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Lecturers get(int id) {
+    public Account get(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void insert(Lecturers model) {
+    public void insert(Account model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void update(Lecturers model) {
+    public void update(Account model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void delete(Lecturers model) {
+    public void delete(Account model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Lecturers getT(String username, String password) {
+    public Account getT(String username, String password) {
         try {
-            String sql = "select * from Login_Lecturers where username = ? and password = ?";
+            String sql = "select * from Account where username = ? and password = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, username);
             stm.setString(2, password);
             ResultSet rs = stm.executeQuery();
-            while (rs.next()) {
-                Lecturers lec = new Lecturers();
-                lec.setUsername(rs.getString("username"));
-                lec.setPassword(rs.getString("password"));
-                lec.setDisplayname(rs.getString("displayname"));
-                return lec;
+            while(rs.next()){
+                Account acc = new Account();
+                acc.setUsername(rs.getString("username"));
+                acc.setPassword(rs.getString("password"));
+                acc.setDisplayname(rs.getString("displayname"));
+                return acc;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(LecturersDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AccountDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
-
 }
+    
+    
+    
+
