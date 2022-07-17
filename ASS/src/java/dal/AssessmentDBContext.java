@@ -23,9 +23,9 @@ public class AssessmentDBContext extends DBContext<Assessment>{
             String sql = "SELECT [aid]\n"
                     + "      ,[aname]\n"
                     + "      ,[weight]\n"
-                    + "      ,[subid]\n"
+                    + "      ,[cid]\n"
                     + "  FROM [Assessment]\n"
-                    + "  where subid = ?";
+                    + "  where cid = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, cid);
             ResultSet rs = stm.executeQuery();
@@ -34,7 +34,7 @@ public class AssessmentDBContext extends DBContext<Assessment>{
                 a.setAid(rs.getInt("aid"));
                 a.setAname(rs.getString("aname"));
                 a.setWeight(rs.getFloat("weight"));
-                a.setCid(rs.getInt("Cid"));
+                a.setCid(rs.getInt("cid"));
                 assesments.add(a);
             }
         } catch (SQLException ex) {
@@ -71,6 +71,11 @@ public class AssessmentDBContext extends DBContext<Assessment>{
     @Override
     public Assessment getT(String a, String b) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    public static void main(String[] args) {
+        AssessmentDBContext ass = new AssessmentDBContext();
+        
+        ArrayList<Assessment> search = ass.search(1);System.out.println(""+search);
     }
     
 }

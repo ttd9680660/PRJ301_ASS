@@ -4,7 +4,9 @@
  */
 package controller.student;
 
+import dal.AssessmentDBContext;
 import dal.CourseDBContext;
+import dal.ExamDBContext;
 import dal.TranscriptDBContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -12,7 +14,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import model.Assessment;
 import model.Course;
+import model.Exam;
 import model.Transcript;
 
 /**
@@ -31,8 +35,22 @@ public class ViewTransController extends HttpServlet {
 
         CourseDBContext dbc = new CourseDBContext();
         ArrayList<Course> course = dbc.search(sid);
+        ExamDBContext dbexam = new ExamDBContext();
+        ArrayList<Exam> search = dbexam.search(sid, cid);
+        AssessmentDBContext dbass = new AssessmentDBContext();
+        ArrayList<Assessment> search1 = dbass.search(cid);
+        
+        float sum = 0;
+        for (Exam assessment : search) {
+            sum = sum + assessment.getScore()*assessment.getAssessment().getWeight()/100;
+        }
+        
         request.setAttribute("course", course);
         request.setAttribute("sid", sid);
+        request.setAttribute("search", search);
+        request.setAttribute("search1", search1);
+        request.setAttribute("sum", sum);
+      
 
         request.getRequestDispatcher("student/transcript.jsp").forward(request, response);
     }

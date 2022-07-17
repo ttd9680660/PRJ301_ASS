@@ -23,7 +23,7 @@ public class ViewGroup extends HttpServlet{
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        int sid = 2;
+        int sid = 1;
 
         CourseDBContext dbc = new CourseDBContext();
         ArrayList<Course> course = dbc.search(sid);

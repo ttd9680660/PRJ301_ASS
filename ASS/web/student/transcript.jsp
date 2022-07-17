@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-         <meta charset="utf-8" />
+        <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
@@ -125,55 +125,55 @@
                     <table>
                         <tr>
                             <td valign='top'>                
-<!--                                <div class="ddd">
-                                    Select a term, course ...
-                                </div>  -->
-<!--                                <table class="d1">
-                                    <thead><tr class="dd"><td>TERM</td><td>COURSE</td></tr></thead>
-                                    <tbody>
-                                        <tr>                    
-                                            <td class="d11"><div><table><tr><td></td></tr></table></div></td>
-                                            <td class="d12"><div><table>
-                                                        <tr>
-                                                            <td>Java Web Application Development (PRJ301) </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Basic Cross-Platform Application Programming With .NET (PRN211) </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Software Requirement (SWR302) </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Software Testing (SWT301) </td>
-                                                        </tr>
-                                                    </table></div></td>
-                                        </tr>
-                                    </tbody></table>-->
-<!--                                <table>
-                                    <thead><tr class="d1"><th>TERM</th><th>COURSE</th></tr></thead>
+                                <!--                                <div class="ddd">
+                                                                    Select a term, course ...
+                                                                </div>  -->
+                                <!--                                <table class="d1">
+                                                                    <thead><tr class="dd"><td>TERM</td><td>COURSE</td></tr></thead>
+                                                                    <tbody>
+                                                                        <tr>                    
+                                                                            <td class="d11"><div><table><tr><td></td></tr></table></div></td>
+                                                                            <td class="d12"><div><table>
+                                                                                        <tr>
+                                                                                            <td>Java Web Application Development (PRJ301) </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td>Basic Cross-Platform Application Programming With .NET (PRN211) </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td>Software Requirement (SWR302) </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td>Software Testing (SWT301) </td>
+                                                                                        </tr>
+                                                                                    </table></div></td>
+                                                                        </tr>
+                                                                    </tbody></table>-->
+                                <!--                                <table>
+                                                                    <thead><tr class="d1"><th>TERM</th><th>COURSE</th></tr></thead>
+                                
+                                                                    <tbody>
+                                                                        <tr> 
+                                                                            <td class="d11" valign='top'><div><table><tr><td>Summer 2022</td></tr></table></div></td>
+                                                                            <td class="d12">
+                                                                                <div>
+                                                                                    <table>
+                                                                                        <tr>
+                                                                                            <td>
+                                <c:forEach items="${requestScope.course}" var="c">                               
+                                    <a  href="assessment?sid=${requestScope.sid}&cid=${c.cid}"  >${c.cname}</a> </br>                                 
+                                </c:forEach>
 
-                                    <tbody>
-                                        <tr> 
-                                            <td class="d11" valign='top'><div><table><tr><td>Summer 2022</td></tr></table></div></td>
-                                            <td class="d12">
-                                                <div>
-                                                    <table>
-                                                        <tr>
-                                                            <td>
-                                                                <c:forEach items="${requestScope.course}" var="c">                               
-                                                                    <a  href="assessment?sid=${requestScope.sid}&cid=${c.cid}"  >${c.cname}</a> </br>                                 
-                                                                </c:forEach>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
 
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
+            </td>
 
-                                            </td>
-
-                                        </tr>
-                                    </tbody></table>
-                            </td>-->
+        </tr>
+    </tbody></table>
+</td>-->
                             <td valign='top'>
                                 <div>
                                     <table>
@@ -188,108 +188,21 @@
                                         </tr>
 
                                         <tbody>
-                                            <tr>
-                                                <td rowspan="2">Assignment</td>
-                                                <td>Assignment 1</td>
-                                                <td>15.0 %</td>
-                                                <td>
-                                                    <c:if test="${requestScope.transcript.as1 == 0}">
-                                                    </c:if>  
-                                                    <c:if test="${requestScope.transcript.as1 != 0}">
-                                                        ${requestScope.transcript.as1}
-                                                    </c:if> 
-                                                </td>
-                                                <td></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>Assignment 2</td>
-                                                <td>15.0 %</td>
-                                                <td>
-                                                    <c:if test="${requestScope.transcript.as2 == 0}">
-                                                    </c:if>  
-                                                    <c:if test="${requestScope.transcript.as2 != 0}">
-                                                        ${requestScope.transcript.as2}
-                                                        </c:if> 
-                                                </td>
-                                                <td></td>
-                                            </tr>
-
-
-                                            
-
-                                            <tr>
-                                                <td rowspan="3">Progress test</td>
-                                                <td>Progress test 1</td>
-                                                <td>10.0 %</td>
-                                                <td>
-                                                    <c:if test="${requestScope.transcript.pt1 == 0}">
-                                                    </c:if>  
-                                                    <c:if test="${requestScope.transcript.pt1 != 0}">
-                                                        ${requestScope.transcript.pt1}
-                                                        </c:if> 
-                                                </td>
-                                                <td></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>Progress test 2</td>
-                                                <td>10.0 %</td>
-                                                <td>
-                                                    <c:if test="${requestScope.transcript.pt2 == 0}">
-                                                    </c:if>  
-                                                    <c:if test="${requestScope.transcript.pt2 != 0}">
-                                                        ${requestScope.transcript.pt2}
-                                                        </c:if> 
-                                                </td>
-                                                <td></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>Progress test 3</td>
-                                                <td>10.0 %</td>
-                                                <td>
-                                                    <c:if test="${requestScope.transcript.pt3 == 0}">
-                                                    </c:if>  
-                                                    <c:if test="${requestScope.transcript.pt3 != 0}">
-                                                        ${requestScope.transcript.pt3}
-                                                        </c:if> 
-                                                </td>
-                                                <td></td>
-                                            </tr>
-
-                                         
-
-                                            <tr>
-                                                <td rowspan="1">Practical Exam</td>
-                                                <td>Practical Exam</td>
-                                                <td>20.0 %</td>
-                                                <td>
-                                                    <c:if test="${requestScope.transcript.pe == 0}">
-                                                    </c:if>  
-                                                    <c:if test="${requestScope.transcript.pe != 0}">
-                                                        ${requestScope.transcript.pe}
-                                                        </c:if> 
-                                                </td>
-                                                <td></td>
-                                            </tr>
-
-
-
-                                            <tr>
-                                                <td rowspan="1">Final Exam</td>
-                                                <td>Final Exam</td>
-                                                <td>20.0 %</td>
-                                                <td>
-                                                    <c:if test="${requestScope.transcript.fe == 0}">
-                                                    </c:if>  
-                                                    <c:if test="${requestScope.transcript.fe != 0}">
-                                                        ${requestScope.transcript.fe}
-                                                        </c:if> 
-                                                </td>
-                                                <td></td>
-                                            </tr>
-
+                                            <c:forEach items="${requestScope.search1}" var="s1">
+                                                <tr>
+                                                    <td></td>
+                                                    <td>${s1.aname}</td>
+                                                    <td>${s1.weight} %</td>
+                                                    <c:forEach items="${requestScope.search}" var="s">
+                                                        
+                                                            <c:if test="${s.getAssessment().aname eq s1.aname}">
+                                                            <td>${s.score}</c:if>
+                                                            
+                                                        </td>
+                                                    </c:forEach>
+                                                    <td></td>
+                                                </tr>
+                                            </c:forEach>
 
                                         </tbody>
 
@@ -297,14 +210,24 @@
                                             <tr>
                                                 <td rowspan="2">COURSE TOTAL</td>
                                                 <td>AVERAGE</td>
-                                                <td colspan="3"></td>
+                                                <td></td>
+                                                <td colspan="3">${requestScope.sum}</td>
                                             </tr>
 
                                             <tr>
                                                 <td>STATUS</td>
                                                 <td colspan="3">
-                                                    <font color="Green">STUDYING</font>
-                                                </td></tr>
+                                                    <c:if test="${requestScope.sum >= 5}">
+                                                        <font color="Green">Pass</font>
+                                                    </c:if>
+                                                    <c:if test="${requestScope.sum < 5}">
+                                                        <font color="Red">Not Pass</font>
+                                                    </c:if>      
+                                                    <c:if test="${requestScope.sum == 5}">
+                                                        <font color="Green">Study</font>
+                                                    </c:if>    
+                                                </td>
+                                            </tr>
                                         </tfoot>
                                     </table>
                                 </div>
@@ -326,7 +249,7 @@
         <div class="g">
             <table >
                 <tr>
-                    <p>© Powered by FPT University |  CMS |  library |  books24x7</p>
+                <p>© Powered by FPT University |  CMS |  library |  books24x7</p>
                 </tr>
             </table>
         </div>

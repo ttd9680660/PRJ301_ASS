@@ -89,6 +89,9 @@
         .g p{
             text-align: center;
         }
+        .d1{
+            background-color: #4169E1;
+        }
     </style>
 
     <body>
