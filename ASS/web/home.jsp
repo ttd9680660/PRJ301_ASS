@@ -71,7 +71,7 @@
                 <c:if test="${sessionScope.acc != null}">
                     <div class="aa">
                         <p>
-                            <a href="view/information.jsp">Information</a>
+                            <a href="student/trans.jsp">Information</a>
                         </p>
                     </div>
                     <div class="bb">

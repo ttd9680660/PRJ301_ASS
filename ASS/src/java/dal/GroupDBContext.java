@@ -40,7 +40,7 @@ public class GroupDBContext extends DBContext<Group>{
         return group;
     }
     
-    public ArrayList<Group> search(int subid) {
+    public ArrayList<Group> search(int cid) {
         ArrayList<Group> group = new ArrayList<>();
         try {
             String sql = "SELECT *\n"
@@ -49,7 +49,7 @@ public class GroupDBContext extends DBContext<Group>{
                     + "             Course ON Group_Course.cid = Course.cid\n"
                     + "			 where Course.cid = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setInt(1, subid);
+            stm.setInt(1, cid);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Group g = new Group();

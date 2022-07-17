@@ -41,28 +41,36 @@ public class CourseDBContext extends DBContext<Course> {
     }
 
     public ArrayList<Course> search(int sid) {
-        ArrayList<Course> co = new ArrayList<>();
+        ArrayList<Course> cou = new ArrayList<>();
         try {
-            String sql = "Select s.sid, s.sname, c.cname\n"
-                    + "From Student s inner join Transcript t on s.sid=t.sid inner join\n"
-                    + "Course c on t.cid = c.cid\n"
-                    + "where s.sid=?";
+            String sql = "SELECT *\n"
+                    + "FROM   Student INNER JOIN\n"
+                    + "             Student_Course ON Student.sid = Student_Course.sid INNER JOIN\n"
+                    + "             Course ON Student_Course.cid = Course.cid\n"
+                    + "			 where Student.sid = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, sid);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Course c = new Course();
+                c.setCid(rs.getInt("cid"));
                 c.setCname(rs.getString("cname"));
                 Student s = new Student();
                 s.setSid(rs.getInt("sid"));
+                s.setSimg(rs.getString("simg"));
+                s.setScode(rs.getString("scode"));
                 s.setSname(rs.getString("sname"));
+                s.setGender(rs.getBoolean("gender"));
+                s.setDob(rs.getDate("dob"));
+                s.setAddress(rs.getString("address"));
+                s.setSphone(rs.getString("sphone"));
                 c.setS(s);
-                co.add(c);
+                cou.add(c);
             }
         } catch (SQLException ex) {
             Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return co;
+        return cou;
     }
 
     @Override

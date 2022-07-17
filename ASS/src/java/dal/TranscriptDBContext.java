@@ -22,7 +22,7 @@ public class TranscriptDBContext extends DBContext<Transcript> {
 
     public Transcript getget(int sid, int cid) {
         try {
-            String sql = "Select s.sid,s.sname, c.cname, t.as1,t.as2, t.pt1, t.pt2, t.pt3,t.pe,t.fe\n"
+            String sql = "Select s.sid,s.sname,c.cid, c.cname, t.tid, t.as1,t.as2, t.pt1, t.pt2, t.pt3,t.pe,t.fe\n"
                     + "From Student s inner join Transcript t on s.sid=t.sid inner join\n"
                     + "Course c on t.cid = c.cid\n"
                     + "where s.sid=? and c.cid=? ";
@@ -33,17 +33,19 @@ public class TranscriptDBContext extends DBContext<Transcript> {
             while (rs.next()) {
                 Transcript t = new Transcript();
                 t.setTid(rs.getInt("tid"));
-                t.setAs1(rs.getInt("as1"));
-                t.setAs2(rs.getInt("as2"));
-                t.setPt1(rs.getInt("pt1"));
-                t.setPt2(rs.getInt("pt2"));
-                t.setPt3(rs.getInt("pt3"));
-                t.setPe(rs.getInt("pe"));
-                t.setFe(rs.getInt("fe"));
+                t.setAs1(rs.getFloat("as1"));
+                t.setAs2(rs.getFloat("as2"));
+                t.setPt1(rs.getFloat("pt1"));
+                t.setPt2(rs.getFloat("pt2"));
+                t.setPt3(rs.getFloat("pt3"));
+                t.setPe(rs.getFloat("pe"));
+                t.setFe(rs.getFloat("fe"));
                 Student s = new Student();
                 s.setSid(rs.getInt("sid"));
+                s.setSname(rs.getString("sname"));
                 Course c = new Course();
                 c.setCid(rs.getInt("cid"));
+                c.setCname(rs.getString("cname"));
                 t.setS(s);
                 t.setC(c);
                 return t;
@@ -86,7 +88,7 @@ public class TranscriptDBContext extends DBContext<Transcript> {
     }
     public static void main(String[] args) {
         TranscriptDBContext db = new TranscriptDBContext();
-        Transcript get = db.getget(4, 1);
+        Transcript get = db.getget(2, 1);
         System.out.println("" + get);    
     }
 }

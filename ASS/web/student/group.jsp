@@ -20,7 +20,7 @@
         <div class="ee">
             <div>
                 <p> <a href="subject">Home</a>
-                    | Groups </p>
+                     </p>
             </div>
             <div> 
              <p>

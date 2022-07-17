@@ -6,11 +6,11 @@
     </servlet>
     <servlet>
         <servlet-name>ListStudentController</servlet-name>
-        <servlet-class>controller.ListStudentController</servlet-class>
+        <servlet-class>controller.student.ListStudentController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>GroupController</servlet-name>
-        <servlet-class>controller.GroupController</servlet-class>
+        <servlet-class>controller.lecturer.GroupController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CourseController</servlet-name>
@@ -18,11 +18,11 @@
     </servlet>
     <servlet>
         <servlet-name>TranscriptController</servlet-name>
-        <servlet-class>controller.TranscriptController</servlet-class>
+        <servlet-class>controller.student.TranscriptController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ViewTransController</servlet-name>
-        <servlet-class>controller.ViewTransController</servlet-class>
+        <servlet-class>controller.student.ViewTransController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>HomeController</servlet-name>
@@ -31,6 +31,10 @@
     <servlet>
         <servlet-name>LogoutController</servlet-name>
         <servlet-class>controller.LogoutController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewGroup</servlet-name>
+        <servlet-class>controller.student.ViewGroup</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewGroup</servlet-name>
+        <url-pattern>/viewgroup</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

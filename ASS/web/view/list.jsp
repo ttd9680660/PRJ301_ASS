@@ -70,7 +70,7 @@
         <div>
             <table class="khung2" border="0px"> 
                 <tr>
-                    <td><a href="group">Home</a>|Group</td>
+                    <td><a href="group">Home</a>|<a href="course">Group</a></td>
                 </tr>
             </table>
         </div>

@@ -9,8 +9,18 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Resume - Start Bootstrap Theme</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
     </head>
     <style>
         .a {
@@ -94,8 +104,8 @@
         <div class="b">
             <table >
                 <tr>
-                    <td><a href="group">Home</a>|Grade-book</td>
-                    <td><b1>Logout</b1></td>
+                    <td><a href="home">Home</a>|<a href="viewgroup">Course</a></td>
+                    <td><b1><a href="logout">Logout</a></b1></td>
                 <td><b2>CAMPUS: FPTU-Hòa Lạc</b2></td>
                 </tr>
             </table>
@@ -115,10 +125,10 @@
                     <table>
                         <tr>
                             <td valign='top'>                
-                                <div class="ddd">
+<!--                                <div class="ddd">
                                     Select a term, course ...
-                                </div>  
-                                <table class="d1">
+                                </div>  -->
+<!--                                <table class="d1">
                                     <thead><tr class="dd"><td>TERM</td><td>COURSE</td></tr></thead>
                                     <tbody>
                                         <tr>                    
@@ -138,8 +148,32 @@
                                                         </tr>
                                                     </table></div></td>
                                         </tr>
+                                    </tbody></table>-->
+<!--                                <table>
+                                    <thead><tr class="d1"><th>TERM</th><th>COURSE</th></tr></thead>
+
+                                    <tbody>
+                                        <tr> 
+                                            <td class="d11" valign='top'><div><table><tr><td>Summer 2022</td></tr></table></div></td>
+                                            <td class="d12">
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                <c:forEach items="${requestScope.course}" var="c">                               
+                                                                    <a  href="assessment?sid=${requestScope.sid}&cid=${c.cid}"  >${c.cname}</a> </br>                                 
+                                                                </c:forEach>
+
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+
+                                            </td>
+
+                                        </tr>
                                     </tbody></table>
-                            </td>
+                            </td>-->
                             <td valign='top'>
                                 <div>
                                     <table>
@@ -155,7 +189,7 @@
 
                                         <tbody>
                                             <tr>
-                                                <td rowspan="3">Assignment</td>
+                                                <td rowspan="2">Assignment</td>
                                                 <td>Assignment 1</td>
                                                 <td>15.0 %</td>
                                                 <td>
@@ -182,15 +216,10 @@
                                             </tr>
 
 
-                                            <tr>
-                                                <td>Total</td>
-                                                <td>30.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
+                                            
 
                                             <tr>
-                                                <td rowspan="4">Progress test</td>
+                                                <td rowspan="3">Progress test</td>
                                                 <td>Progress test 1</td>
                                                 <td>10.0 %</td>
                                                 <td>
@@ -229,15 +258,10 @@
                                                 <td></td>
                                             </tr>
 
-                                            <tr>
-                                                <td>Total</td>
-                                                <td>30.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
+                                         
 
                                             <tr>
-                                                <td rowspan="2">Practical Exam</td>
+                                                <td rowspan="1">Practical Exam</td>
                                                 <td>Practical Exam</td>
                                                 <td>20.0 %</td>
                                                 <td>
@@ -250,16 +274,10 @@
                                                 <td></td>
                                             </tr>
 
-                                            <tr>
-                                                <td>Total</td>
-                                                <td>20.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
 
 
                                             <tr>
-                                                <td rowspan="2">Final Exam</td>
+                                                <td rowspan="1">Final Exam</td>
                                                 <td>Final Exam</td>
                                                 <td>20.0 %</td>
                                                 <td>
@@ -272,12 +290,6 @@
                                                 <td></td>
                                             </tr>
 
-                                            <tr>
-                                                <td>Total</td>
-                                                <td>20.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
 
                                         </tbody>
 
