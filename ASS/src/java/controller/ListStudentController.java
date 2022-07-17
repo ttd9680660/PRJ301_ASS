@@ -24,15 +24,22 @@ public class ListStudentController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("sid"));
-        StudentDBContext db = new StudentDBContext();
-        ArrayList<Student> st = db.search(id);
-        int count = 1;
-        GroupDBContext gdb = new GroupDBContext();
-        ArrayList<Group> gr = gdb.list();
+         int id = Integer.parseInt(request.getParameter("id"));
+        StudentDBContext dbs = new StudentDBContext();
+//        ArrayList<Student> stu = dbs.search(id);
+        
+        String raw_code = request.getParameter("code");
+        String code = (raw_code!=null && raw_code.length()>0)?raw_code:null;
+        ArrayList<Student> st = dbs.getList(code, id);
+        int count =1;
+        GroupDBContext db = new GroupDBContext();
+        ArrayList<Group> group = db.list();
+        request.setAttribute("group", group);
+        request.setAttribute("count", count);
+        request.setAttribute("id", id);
         request.setAttribute("st", st);
-        request.setAttribute("gr", gr);
         request.getRequestDispatcher("view/list.jsp").forward(request, response);
+
     }
 
     @Override
