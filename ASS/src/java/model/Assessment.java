@@ -12,7 +12,7 @@ public class Assessment {
 
     private int aid;
     private String aname;
-    private Float weight;
+    private float weight;
     private int cid;
 
     public int getAid() {
@@ -31,11 +31,11 @@ public class Assessment {
         this.aname = aname;
     }
 
-    public Float getWeight() {
+    public float getWeight() {
         return weight;
     }
 
-    public void setWeight(Float weight) {
+    public void setWeight(float weight) {
         this.weight = weight;
     }
 

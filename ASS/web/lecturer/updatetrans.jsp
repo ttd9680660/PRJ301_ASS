@@ -117,7 +117,7 @@
         <div class="c">
             <table>
                 <tr >
-                    <td>Grade report for Lecturer</td>
+                    <td>The Group's Scoreboard</td>
                 </tr>            
             </table>
         </div>
@@ -131,17 +131,16 @@
                                 <div class="ddd">
                                     Select a term, group ...
                                 </div>  
-
+                                                                <form action="lecstu" method="POST">
                                 <c:if test="${requestScope.assessment ne null}">
-                                    <table>
-                                        <div >
-                                            <tr>
-                                                <td></td>
-                                                <c:forEach items="${requestScope.assessment}" var="a">
-                                                    <td><a class="taskbarhome">${a.aname}</a></td>
-                                                    </c:forEach>
-                                            </tr>
-                                        </div>
+                                    <table class="lienket1">
+                                        <tr>
+                                            <td></td>
+                                            <c:forEach items="${requestScope.assessment}" var="a">
+                                                <td>${a.aname}</td>
+                                            </c:forEach>
+                                        </tr>
+
                                         <c:forEach items="${requestScope.student}" var="s">
                                             <tr> 
                                                 <td> ${s.sname}</td>
@@ -149,14 +148,14 @@
                                                     <td>
                                                         <input name="score${s.sid}_${a.aid}" type="text"
                                                                <c:forEach items="${requestScope.listmark}" var="e">
-                                                                   <c:if test="${e.student.sid eq s.sid and e.assessment.aid eq a.aid}">
+                                                                   <c:if test="${e.stu.sid eq s.sid and e.assessment.aid eq a.aid}">
                                                                        value="${e.score}"
                                                                    </c:if>
                                                                </c:forEach>      
                                                                />        
                                                         <input name="eid${s.sid}_${a.aid}" type="hidden"
                                                                <c:forEach items="${requestScope.listmark}" var="e">
-                                                                   <c:if test="${e.student.sid eq s.sid and e.assessment.aid eq a.aid}">
+                                                                   <c:if test="${e.stu.sid eq s.sid and e.assessment.aid eq a.aid}">
                                                                        value="${e.eid}"
                                                                    </c:if>
                                                                </c:forEach>      
@@ -166,11 +165,10 @@
                                                 </c:forEach>
                                             </tr>
                                         </c:forEach>
-
-                                    </table>            
+                                    </table>               
                                     <input type="submit" value="Save"/>
                                 </c:if>
-
+                                                                </form>
                             </td> 
 
                         </tr>

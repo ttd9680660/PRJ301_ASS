@@ -126,7 +126,7 @@ public class StudentDBContext extends DBContext<Student> {
 
     public static void main(String[] args) {
         StudentDBContext s = new StudentDBContext();
-        ArrayList<Student> acc = s.getList("HE150001", 1);
+        ArrayList<Student> acc = s.search(4);
         System.out.println(acc);
     }
 

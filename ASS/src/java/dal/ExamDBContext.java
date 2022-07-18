@@ -122,7 +122,7 @@ public class ExamDBContext extends DBContext<Exam>{
                     stm.executeUpdate();
                 } //UPDATE
                 else if (exam.getEid() != -1 && exam.getScore() != -1) {
-                    String sql_update_exam = "UPDATE Exam SET Score = ? WHERE eid = ?";
+                    String sql_update_exam = "UPDATE Exam SET score = ? WHERE eid = ?";
                     PreparedStatement stm = connection.prepareStatement(sql_update_exam);
                     stm.setInt(2, exam.getEid());
                     stm.setFloat(1, exam.getScore());
@@ -183,7 +183,7 @@ public class ExamDBContext extends DBContext<Exam>{
     }
     public static void main(String[] args) {
         ExamDBContext db = new ExamDBContext();
-        ArrayList<Exam> list = db.search(1, 1);
+        ArrayList<Exam> list = db.listmark(1);
 
         System.out.println("" + list);
     } 

@@ -37,16 +37,20 @@
         <servlet-class>controller.student.ViewGroup</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>UpdateTransController</servlet-name>
-        <servlet-class>controller.lecturer.UpdateTransController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>LecturerCourseController</servlet-name>
         <servlet-class>controller.lecturer.LecturerCourseControll</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LecturerGroupController</servlet-name>
         <servlet-class>controller.lecturer.LecturerGroupController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LecturerStudentController</servlet-name>
+        <servlet-class>controller.lecturer.LecturerStudentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LecStudent</servlet-name>
+        <servlet-class>controller.lecturer.LecStudent</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -85,16 +89,20 @@
         <url-pattern>/viewgroup</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>UpdateTransController</servlet-name>
-        <url-pattern>/updatetrans</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>LecturerCourseController</servlet-name>
         <url-pattern>/leccourse</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LecturerGroupController</servlet-name>
         <url-pattern>/lecgroup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LecturerStudentController</servlet-name>
+        <url-pattern>/lecstudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LecStudent</servlet-name>
+        <url-pattern>/lecstu</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

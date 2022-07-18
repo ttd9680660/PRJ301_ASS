@@ -15,7 +15,7 @@ public class Exam {
     private Student stu;
     private Assessment assessment;
     private Course cou;
-    private Float score;
+    private float score;
     private Date date;
 
     public int getEid() {
@@ -50,14 +50,14 @@ public class Exam {
         this.cou = cou;
     }
 
-
-    public Float getScore() {
+    public float getScore() {
         return score;
     }
 
-    public void setScore(Float score) {
+    public void setScore(float score) {
         this.score = score;
     }
+
 
     public Date getDate() {
         return date;

@@ -21,13 +21,13 @@ public class LecturerCourseControll extends HttpServlet{
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-//        int lid = Integer.parseInt(request.getParameter("lid"));
-        CourseDBContext dbsub = new CourseDBContext();
         int lid =5;
+        CourseDBContext dbsub = new CourseDBContext();      
         ArrayList<Course> leccourse = dbsub.searchlecturers(lid);
-                
+        request.setAttribute("leccourse", leccourse);        
+        
         request.setAttribute("lid", lid);     
-        request.setAttribute("leccourse", leccourse);
+        
         request.getRequestDispatcher("lecturer/leccourse.jsp").forward(request, response);
     }
         
