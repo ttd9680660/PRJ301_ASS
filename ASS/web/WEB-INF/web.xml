@@ -45,12 +45,12 @@
         <servlet-class>controller.lecturer.LecturerGroupController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>LecturerStudentController</servlet-name>
-        <servlet-class>controller.lecturer.LecturerStudentController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>LecStudent</servlet-name>
         <servlet-class>controller.lecturer.LecStudent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LecturerStudentController</servlet-name>
+        <servlet-class>controller.lecturer.LecturerStudentController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -97,12 +97,12 @@
         <url-pattern>/lecgroup</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>LecturerStudentController</servlet-name>
-        <url-pattern>/lecstudent</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>LecStudent</servlet-name>
         <url-pattern>/lecstu</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LecturerStudentController</servlet-name>
+        <url-pattern>/lecstudent</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

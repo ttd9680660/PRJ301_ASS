@@ -92,6 +92,9 @@
         .d1{
             background-color: #4169E1;
         }
+        .sub{
+            margin-left: 100px;
+        }
     </style>
 
     <body>
@@ -131,44 +134,46 @@
                                 <div class="ddd">
                                     Select a term, group ...
                                 </div>  
-                                                                <form action="lecstu" method="POST">
-                                <c:if test="${requestScope.assessment ne null}">
-                                    <table class="lienket1">
-                                        <tr>
-                                            <td></td>
-                                            <c:forEach items="${requestScope.assessment}" var="a">
-                                                <td>${a.aname}</td>
-                                            </c:forEach>
-                                        </tr>
-
-                                        <c:forEach items="${requestScope.student}" var="s">
-                                            <tr> 
-                                                <td> ${s.sname}</td>
+                                <form action="lecstu" method="POST">
+                                    <c:if test="${requestScope.assessment ne null}">
+                                        <table class="lienket1">
+                                            <tr>
+                                                <td></td>
                                                 <c:forEach items="${requestScope.assessment}" var="a">
-                                                    <td>
-                                                        <input name="score${s.sid}_${a.aid}" type="text"
-                                                               <c:forEach items="${requestScope.listmark}" var="e">
-                                                                   <c:if test="${e.stu.sid eq s.sid and e.assessment.aid eq a.aid}">
-                                                                       value="${e.score}"
-                                                                   </c:if>
-                                                               </c:forEach>      
-                                                               />        
-                                                        <input name="eid${s.sid}_${a.aid}" type="hidden"
-                                                               <c:forEach items="${requestScope.listmark}" var="e">
-                                                                   <c:if test="${e.stu.sid eq s.sid and e.assessment.aid eq a.aid}">
-                                                                       value="${e.eid}"
-                                                                   </c:if>
-                                                               </c:forEach>      
-                                                               /> 
-                                                        <input type="hidden" name="component" value="${s.sid}_${a.aid}_${requestScope.cid}"/>
-                                                    </td>
+                                                    <td>${a.aname}</td>
                                                 </c:forEach>
                                             </tr>
-                                        </c:forEach>
-                                    </table>               
-                                    <input type="submit" value="Save"/>
-                                </c:if>
-                                                                </form>
+
+                                            <c:forEach items="${requestScope.student}" var="s">
+                                                <tr> 
+                                                    <td> ${s.sname}</td>
+                                                    <c:forEach items="${requestScope.assessment}" var="a">
+                                                        <td>
+                                                            <input name="score${s.sid}_${a.aid}" type="text"
+                                                                   <c:forEach items="${requestScope.listmark}" var="e">
+                                                                       <c:if test="${e.stu.sid eq s.sid and e.assessment.aid eq a.aid}">
+                                                                           value="${e.score}"
+                                                                       </c:if>
+                                                                   </c:forEach>      
+                                                                   />        
+                                                            <input name="eid${s.sid}_${a.aid}" type="hidden"
+                                                                   <c:forEach items="${requestScope.listmark}" var="e">
+                                                                       <c:if test="${e.stu.sid eq s.sid and e.assessment.aid eq a.aid}">
+                                                                           value="${e.eid}"
+                                                                       </c:if>
+                                                                   </c:forEach>      
+                                                                   /> 
+                                                            <input type="hidden" name="component" value="${s.sid}_${a.aid}_${requestScope.cid}"/>
+                                                        </td>
+                                                    </c:forEach>
+                                                </tr>
+                                            </c:forEach>
+                                        </table>   
+                                        <div class="sub">
+                                        <input type="submit" value="Save"/>
+                                        </div>
+                                    </c:if>
+                                </form>
                             </td> 
 
                         </tr>
