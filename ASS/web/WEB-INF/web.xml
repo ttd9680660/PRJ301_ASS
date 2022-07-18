@@ -40,6 +40,14 @@
         <servlet-name>UpdateTransController</servlet-name>
         <servlet-class>controller.lecturer.UpdateTransController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LecturerCourseController</servlet-name>
+        <servlet-class>controller.lecturer.LecturerCourseControll</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LecturerGroupController</servlet-name>
+        <servlet-class>controller.lecturer.LecturerGroupController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -79,6 +87,14 @@
     <servlet-mapping>
         <servlet-name>UpdateTransController</servlet-name>
         <url-pattern>/updatetrans</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LecturerCourseController</servlet-name>
+        <url-pattern>/leccourse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LecturerGroupController</servlet-name>
+        <url-pattern>/lecgroup</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
