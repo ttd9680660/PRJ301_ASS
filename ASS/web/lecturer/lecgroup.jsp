@@ -107,7 +107,7 @@
         <div class="b">
             <table >
                 <tr>
-                    <td><a href="home">Home</a>|Grade-book</td>
+                    <td><a href="home">Home</a>|<a href="leccourse">Course</a></td>
                     <td><b1><a href="logout">Logout</a></b1></td>
                 <td><b2>CAMPUS: FPTU-Hòa Lạc</b2></td>
                 </tr>
@@ -132,7 +132,7 @@
                                     Select a term, course ...
                                 </div>  
                                 <table>
-                                    <thead><tr class="d1"><th>TERM</th><th>COURSE</th></tr></thead>
+                                    <thead><tr class="d1"><th>TERM</th><th>GROUP</th></tr></thead>
 
                                     <tbody>
                                         <tr> 
@@ -142,8 +142,8 @@
                                                     <table>
                                                         <tr>
                                                             <td>
-                                                                <c:forEach items="${requestScope.leccourse}" var="c">                               
-                                                                    <a  href="lecgroup?lid=${requestScope.lid}&cid=${c.cid}"  >${c.cname}</a> </br>                                 
+                                                                <c:forEach items="${requestScope.grouplecturers}" var="g">                               
+                                                                    <a href="studentlecturers?lid=${requestScope.lid}&cid=${requestScope.cid}&gid=${g.gid}"> ${g.gname}</a>                                
                                                                 </c:forEach>
 
                                                             </td>

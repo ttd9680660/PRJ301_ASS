@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Course;
+import model.Lecturer;
 import model.Student;
 
 /**
@@ -73,6 +74,34 @@ public class CourseDBContext extends DBContext<Course> {
         return cou;
     }
 
+    public ArrayList<Course> searchlecturers(int lid) {
+        ArrayList<Course> cou = new ArrayList<>();
+        try {
+            String sql = "SELECT Course.cid, Course.cname, Lecturer.lid, Lecturer.lname \n"
+                    + "FROM   Lecturer INNER JOIN\n"
+                    + "             Lecturer_Course ON Lecturer.lid = Lecturer_Course.lid INNER JOIN\n"
+                    + "             Course ON Lecturer_Course.cid = Course.cid\n"
+                    + "			 where Lecturer.lid = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, lid);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Course c = new Course();
+                c.setCid(rs.getInt("cid"));
+                c.setCname(rs.getString("cname"));
+                
+                Lecturer lec = new Lecturer();
+                lec.setLid(rs.getInt("lid"));
+                lec.setLname(rs.getString("lname"));
+                c.setLec(lec);
+                cou.add(c);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cou;
+    }
+    
     @Override
     public Course get(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody

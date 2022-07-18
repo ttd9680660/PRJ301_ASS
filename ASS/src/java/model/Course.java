@@ -13,6 +13,15 @@ public class Course {
     private String cname;
     private Group group;
     private Student s;
+    private Lecturer lec;
+
+    public Lecturer getLec() {
+        return lec;
+    }
+
+    public void setLec(Lecturer lec) {
+        this.lec = lec;
+    }
 
     public int getCid() {
         return cid;

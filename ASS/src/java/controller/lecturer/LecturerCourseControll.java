@@ -23,8 +23,8 @@ public class LecturerCourseControll extends HttpServlet{
     throws ServletException, IOException {
 //        int lid = Integer.parseInt(request.getParameter("lid"));
         CourseDBContext dbsub = new CourseDBContext();
-        int lid =1;
-        ArrayList<Course> leccourse = dbsub.search(lid);
+        int lid =5;
+        ArrayList<Course> leccourse = dbsub.searchlecturers(lid);
                 
         request.setAttribute("lid", lid);     
         request.setAttribute("leccourse", leccourse);
@@ -40,5 +40,9 @@ public class LecturerCourseControll extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
+    }
+    @Override
+    public String getServletInfo() {
+        return "Short description";
     }
 }   

@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Course;
 import model.Group;
+import model.Lecturer;
 import model.Student;
 
 /**
@@ -58,6 +59,40 @@ public class GroupDBContext extends DBContext<Group>{
                 Course c = new Course();
                 c.setCid(rs.getInt("cid"));
                 c.setCname(rs.getString("cname"));
+                g.setCo(c);
+                group.add(g);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return group;
+    }
+    
+    public ArrayList<Group> searchlecturers(int lid, int cid) {
+        ArrayList<Group> group = new ArrayList<>();
+        try {
+            String sql = "SELECT [Group].gid,[Group].gname, Lecturer.lid, Course.cid, Course.cname\n" +
+"                                     FROM   [Group] INNER JOIN\n" +
+"                                                   [Lecturer_Group] ON [Group].gid = [Lecturer_Group].gid INNER JOIN\n" +
+"                                                    Lecturer ON [Lecturer_Group].lid = Lecturer.lid INNER JOIN\n" +
+"                                                   Lecturer_Course ON Lecturer.lid = Lecturer_Course.lid INNER JOIN\n" +
+"                                                   Course ON Lecturer_Course.cid = Course.cid INNER JOIN\n" +
+"                                               Group_Course ON [Group].gid = Group_Course.gid AND Course.cid = Group_Course.cid\n" +
+"                                       		  where Lecturer.lid = ? and Course.cid = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, lid);
+            stm.setInt(2, cid);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Group g = new Group();
+                g.setGid(rs.getInt("gid"));
+                g.setGname(rs.getString("gname"));
+                Course c = new Course();
+                c.setCid(rs.getInt("cid"));
+                c.setCname(rs.getString("cname"));
+                Lecturer l = new Lecturer();
+                l.setLid(rs.getInt("lid"));
+                g.setLec(l);
                 g.setCo(c);
                 group.add(g);
             }
