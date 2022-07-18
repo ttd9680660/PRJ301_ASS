@@ -129,7 +129,7 @@
                         <tr>
                             <td valign='top'>                
                                 <div class="ddd">
-                                    Select a term, course ...
+                                    Select a term, group ...
                                 </div>  
                                 <table>
                                     <thead><tr class="d1"><th>TERM</th><th>GROUP</th></tr></thead>
@@ -143,7 +143,7 @@
                                                         <tr>
                                                             <td>
                                                                 <c:forEach items="${requestScope.grouplecturers}" var="g">                               
-                                                                    <a href="studentlecturers?lid=${requestScope.lid}&cid=${requestScope.cid}&gid=${g.gid}"> ${g.gname}</a>                                
+                                                                    <a href="lecstudent?lid=${requestScope.lid}&cid=${requestScope.cid}&gid=${g.gid}"> ${g.gname}</a>                                
                                                                 </c:forEach>
 
                                                             </td>

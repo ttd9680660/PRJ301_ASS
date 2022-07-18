@@ -4,6 +4,7 @@
  */
 package controller.lecturer;
 
+import dal.CourseDBContext;
 import dal.GroupDBContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -11,6 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import model.Course;
 import model.Group;
 
 /**
@@ -31,6 +33,10 @@ public class LecturerGroupController extends HttpServlet{
         GroupDBContext dbgroup = new GroupDBContext();
         ArrayList<Group> grouplecturers = dbgroup.searchlecturers(lid, cid);
         
+//        CourseDBContext db = new CourseDBContext();
+//        ArrayList<Course> lecsub = db.searchlecturers(lid);
+//        
+//        request.setAttribute("lecsub", lecsub);
         request.setAttribute("grouplecturers", grouplecturers);
         request.setAttribute("lid", lid);
         request.setAttribute("cid", cid);
