@@ -24,7 +24,7 @@ public class ViewGroup extends HttpServlet{
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        int sid = 1;
+        int sid = 2;
 
         CourseDBContext dbc = new CourseDBContext();
         ArrayList<Course> course = dbc.search(sid);

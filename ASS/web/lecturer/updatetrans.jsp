@@ -75,7 +75,8 @@
         }
         .ddd{
             text-align: center;
-            font-size: 30px;
+            font-size: 40px;
+            margin-bottom: 20px;
         }
         .ddddd{
             font-size: 30px;
@@ -132,7 +133,7 @@
                         <tr>
                             <td valign='top'>                
                                 <div class="ddd">
-                                    Select a term, group ...
+                                    Transcript
                                 </div>  
                                 <form action="lecstu" method="POST">
                                     <c:if test="${requestScope.assessment ne null}">

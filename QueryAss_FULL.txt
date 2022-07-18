@@ -1,0 +1,84 @@
+AssessmentDBContext
+
+-- --
+SELECT [aid]
+                         ,[aname]
+                          ,[weight]
+                          ,[cid]\n"
+                      FROM [Assessment]
+                      where cid = ?
+
+CourseDBContext
+
+--In ra môn học của 1 hs--
+SELECT *\n"
+                    + "FROM   Student INNER JOIN\n"
+                    + "             Student_Course ON Student.sid = Student_Course.sid INNER JOIN\n"
+                    + "             Course ON Student_Course.cid = Course.cid\n"
+                    + "			 where Student.sid = ?
+--In ra môn dạy của 1 giảng viên--
+SELECT Course.cid, Course.cname, Lecturer.lid, Lecturer.lname 
+                    FROM   Lecturer INNER JOIN
+                                 Lecturer_Course ON Lecturer.lid = Lecturer_Course.lid INNER JOIN
+                                 Course ON Lecturer_Course.cid = Course.cid
+                    		 where Lecturer.lid = ?
+
+ExamDBContext
+
+--In ra điểm của sinh viên theo môn học--
+SELECT Exam.eid, Exam.score, Assessment.aname,Assessment.aid, Assessment.weight , Student.sid, Course.cid
+                    FROM   Assessment INNER JOIN
+                                Exam ON Assessment.aid = Exam.aid INNER JOIN
+                                 Student ON Exam.sid = Student.sid INNER JOIN
+                                Course ON Assessment.cid = Course.cid AND Exam.cid = Course.cid
+                    		 where Student.sid = ? and Course.cid = ?
+
+SELECT A.* FROM\n"
+                    + "              (SELECT eid,sid,aid,score,cid,date FROM Exam) A\n"
+                    + "               INNER JOIN\n"
+                    + "            (SELECT sid,aid,MAX(date) as date FROM Exam\n"
+                    + "                GROUP BY sid,aid) B\n"
+                    + "             ON A.aid = B.aid AND A.sid = B.sid AND A.date = B.date\n"
+                    + "			 where cid = ?
+
+GroupDBContext
+
+--In ra Group dựa theo môn học--
+SELECT *
+                    FROM   [Group] INNER JOIN
+                                 Group_Course ON [Group].gid = Group_Course.gid INNER JOIN
+                                 Course ON Group_Course.cid = Course.cid
+                    			 where Course.cid = ?
+
+--In ra lớp dạy của giáo viên dựa theo môn học--
+SELECT [Group].gid,[Group].gname, Lecturer.lid, Course.cid, Course.cname
+                                     FROM   [Group] INNER JOIN
+                                                  [Lecturer_Group] ON [Group].gid = [Lecturer_Group].gid INNER JOIN
+                                                   Lecturer ON [Lecturer_Group].lid = Lecturer.lid INNER JOIN
+                                                 Lecturer_Course ON Lecturer.lid = Lecturer_Course.lid INNER JOIN
+                                                 Course ON Lecturer_Course.cid = Course.cid INNER JOIN
+                                             Group_Course ON [Group].gid = Group_Course.gid AND Course.cid = Group_Course.cid
+                                    		  where Lecturer.lid = ? and Course.cid = ?
+
+StudentDBContext
+
+--In ra danh sách sinh viên dựa theo lớp học--
+SELECT * 
+                    FROM   [Group] INNER JOIN
+                    Group_Student ON [Group].gid = Group_Student.gid INNER JOIN
+                    Student ON Group_Student.sid = Student.sid
+                    where [Group].gid = ?
+
+SELECT *
+                                                           FROM   [Group] INNER JOIN
+                                                                    Group_Student ON [Group].gid = Group_Student.gid INNER JOIN
+                                                                    Student ON Group_Student.sid = Student.sid
+                                                          		 where [Group].gid = ? and (1=1)
+
+TranscripDBContext
+
+--In ra điểm của học sinh dựa theo môn học--
+Select s.sid,s.sname,c.cid, c.cname, t.tid, t.as1,t.as2, t.pt1, t.pt2, t.pt3,t.pe,t.fe
+                    From Student s inner join Transcript t on s.sid=t.sid inner join
+                    Course c on t.cid = c.cid
+                    where s.sid=1 and c.cid=1

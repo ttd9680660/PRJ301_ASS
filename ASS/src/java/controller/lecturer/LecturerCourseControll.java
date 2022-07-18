@@ -21,7 +21,7 @@ public class LecturerCourseControll extends HttpServlet{
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        int lid =5;
+        int lid =4;
         CourseDBContext dbsub = new CourseDBContext();      
         ArrayList<Course> leccourse = dbsub.searchlecturers(lid);
         request.setAttribute("leccourse", leccourse);        

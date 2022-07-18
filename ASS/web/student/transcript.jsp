@@ -114,7 +114,7 @@
         <div class="c">
             <table>
                 <tr >
-                    <td>Grade report for Trần Trung Đức (HE150887)</td>
+                    <td>Grade report for Nguyen Linh B</td>
                 </tr>            
             </table>
         </div>
